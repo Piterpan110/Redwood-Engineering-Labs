@@ -1,17 +1,24 @@
 import { motion } from "framer-motion";
 import AnimatedCounter from "./AnimatedCounter";
-import { DollarSign, FileCheck, TrendingUp, Ban } from "lucide-react";
+import { Briefcase, TrendingUp, Rocket, Users } from "lucide-react";
 import TiltCard from "./TiltCard";
 
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.15 } },
 };
 
 const item = {
   hidden: { opacity: 0, y: 40, scale: 0.9 },
   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
+
+const roles = [
+  { roles: 1, salary: 150, kept: 150, label: "Your 1st Role", badge: "100% Yours", highlight: false },
+  { roles: 2, salary: 150, kept: 225, label: "2 Roles", badge: "50/50 Split", highlight: false },
+  { roles: 3, salary: 150, kept: 300, label: "3 Roles", badge: "Most Common", highlight: true },
+  { roles: 4, salary: 150, kept: 375, label: "4 Roles", badge: "Top Earners", highlight: false },
+];
 
 const CompensationSection = () => {
   return (
@@ -22,83 +29,133 @@ const CompensationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
+          className="text-center"
         >
           <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-widest text-primary">
             Compensation
           </span>
-          <h2 className="mb-6 max-w-2xl font-display text-4xl font-bold text-foreground md:text-5xl">
-            Shared Success. Real Numbers.
+          <h2 className="mb-6 mx-auto max-w-3xl font-display text-4xl font-bold text-foreground md:text-5xl">
+            More Roles. More Income.<br />
+            <span className="gradient-text">No Limits.</span>
           </h2>
-          <p className="mb-16 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Our model is built entirely on shared success. We only earn when you earn. No hidden fees, no upfront costs — just results.
+          <p className="mb-6 mx-auto max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Your income scales with every role you take on. Our developers consistently hold <span className="text-foreground font-semibold">3+ positions</span> simultaneously — and so can you.
           </p>
         </motion.div>
 
-        {/* Big stat */}
+        {/* How it works - simple visual */}
         <motion.div
-          className="mb-16 flex flex-col items-center text-center"
-          initial={{ opacity: 0, scale: 0.6 }}
+          className="mx-auto mb-12 max-w-xl rounded-2xl border border-primary/20 bg-primary/5 px-8 py-6 text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
+          transition={{ duration: 0.6, type: "spring" }}
         >
-          <div className="stat-number mb-2">
-            <AnimatedCounter value={50} className="stat-number" /> / <AnimatedCounter value={50} className="stat-number" />
+          <p className="text-sm font-medium uppercase tracking-wider text-primary mb-3">How It Works</p>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">1st Role → 100% yours</span>
+            <span className="text-muted-foreground">+</span>
+            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">Each extra → 50/50 split</span>
           </div>
-          <p className="text-lg text-muted-foreground">Revenue split between you and Redwood</p>
         </motion.div>
 
-        {/* Example cards */}
+        {/* Income progression cards */}
         <motion.div
-          className="mb-16 grid gap-6 md:grid-cols-3"
+          className="mb-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
         >
-          {[
-            { salary: "$150K", value: 75, label: "Per additional role" },
-            { salary: "$180K", value: 90, label: "Per additional role" },
-            { salary: "$200K", value: 100, label: "Per additional role" },
-          ].map((item_data, i) => (
-            <motion.div key={i} variants={item}>
+          {roles.map((role) => (
+            <motion.div key={role.roles} variants={item}>
               <TiltCard className="group h-full">
-                <div className="glass-card rounded-2xl p-8 text-center h-full transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-[0_0_40px_-10px_hsl(12_55%_50%/0.2)]">
-                  <p className="mb-1 text-sm text-muted-foreground">{item_data.label}</p>
-                  <p className="font-display text-lg text-muted-foreground">{item_data.salary} salary</p>
-                  <div className="mt-2">
-                    <AnimatedCounter value={item_data.value} prefix="$" suffix="K" className="stat-number text-4xl" duration={1.5} />
+                <div
+                  className={`relative rounded-2xl p-7 h-full text-center transition-all duration-500 overflow-hidden ${
+                    role.highlight
+                      ? "border-2 border-primary/40 bg-primary/10 shadow-[0_0_50px_-12px_hsl(12_55%_50%/0.3)]"
+                      : "glass-card hover:border-primary/20 hover:shadow-[0_0_40px_-10px_hsl(12_55%_50%/0.15)]"
+                  }`}
+                >
+                  {role.highlight && (
+                    <div className="absolute -top-px left-1/2 -translate-x-1/2 rounded-b-lg bg-primary px-4 py-1">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
+                        Most Common
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="mb-4 mt-2 flex items-center justify-center gap-1.5">
+                    {Array.from({ length: role.roles }).map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className={`flex h-8 w-8 items-center justify-center rounded-full ${
+                          role.highlight ? "bg-primary/25" : "bg-primary/15"
+                        }`}
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 + 0.2, type: "spring", bounce: 0.5 }}
+                      >
+                        <Briefcase size={14} className="text-primary" />
+                      </motion.div>
+                    ))}
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground">Your annual take</p>
+
+                  <p className="mb-1 font-display text-lg font-semibold text-foreground">{role.label}</p>
+                  <p className="mb-4 text-xs text-muted-foreground">
+                    {role.roles === 1 ? "Keep everything you earn" : `${role.roles} × $${role.salary}K salary`}
+                  </p>
+
+                  <div className="mb-1">
+                    <AnimatedCounter
+                      value={role.kept}
+                      prefix="$"
+                      suffix="K"
+                      className={`font-display text-4xl font-bold ${
+                        role.highlight ? "gradient-text" : "text-foreground"
+                      }`}
+                      duration={1.5}
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground">/year take-home</p>
+
+                  {!role.highlight && (
+                    <span className="mt-4 inline-block rounded-full border border-border px-3 py-1 text-[11px] font-medium text-muted-foreground">
+                      {role.badge}
+                    </span>
+                  )}
                 </div>
               </TiltCard>
             </motion.div>
           ))}
         </motion.div>
 
-        <motion.p
-          className="mb-12 text-center text-muted-foreground max-w-lg mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* Bottom confidence message + key points */}
+        <motion.div
+          className="mx-auto mb-14 max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Remember — your first role, you keep <span className="text-foreground font-semibold">100%</span>. The 50/50 split applies only to additional roles managed by our team. There is no cap on how many roles you can hold.
-        </motion.p>
+          <p className="text-lg text-muted-foreground">
+            Our engineers consistently hold <span className="text-foreground font-semibold">3 or more roles</span> at once.
+            We're confident you can do the same — and we'll help you get there.
+          </p>
+        </motion.div>
 
-        {/* Key points */}
         <motion.div
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-6 md:grid-cols-3"
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
         >
           {[
-            { icon: Ban, title: "Zero Upfront Fees", desc: "Nothing to pay. Ever. We invest in you first." },
-            { icon: FileCheck, title: "Written Agreement", desc: "All terms defined clearly in writing before any engagement begins." },
+            { icon: Rocket, title: "Zero Upfront Fees", desc: "Nothing to pay. Ever. We invest in your success first." },
             { icon: TrendingUp, title: "Unlimited Potential", desc: "No cap on roles or earnings. The more you grow, the more you earn." },
-            { icon: DollarSign, title: "You Handle Taxes", desc: "Members handle their own tax obligations. Simple and transparent." },
+            { icon: Users, title: "Proven by Our Team", desc: "Our developers already hold 3+ roles. You'll join a system built for it." },
           ].map((card) => (
             <motion.div key={card.title} variants={item}>
               <div className="group glass-card rounded-2xl p-6 h-full transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_30px_-10px_hsl(12_55%_50%/0.15)]">
