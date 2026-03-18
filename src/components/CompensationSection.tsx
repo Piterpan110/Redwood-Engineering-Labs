@@ -104,7 +104,7 @@ const CompensationSection = () => {
 
                   <p className="mb-1 font-display text-lg font-semibold text-foreground">{role.label}</p>
                   <p className="mb-4 text-xs text-muted-foreground">
-                    {role.roles === 1 ? "Keep everything you earn" : `${role.roles} × $${role.salary}K salary`}
+                    {`${role.roles} × $${role.salary}K salary · 50/50 split`}
                   </p>
 
                   <div className="mb-1">
