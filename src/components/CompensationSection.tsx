@@ -53,9 +53,9 @@ const CompensationSection = () => {
         >
           <p className="text-sm font-medium uppercase tracking-wider text-primary mb-3">How It Works</p>
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">1st Role → 100% yours</span>
-            <span className="text-muted-foreground">+</span>
-            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">Each extra → 50/50 split</span>
+            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">Every role → 50/50 split</span>
+            <span className="text-muted-foreground">×</span>
+            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">More roles = more income</span>
           </div>
         </motion.div>
 
