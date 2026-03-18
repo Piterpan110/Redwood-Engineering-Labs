@@ -1,11 +1,17 @@
-import ScrollReveal from "./ScrollReveal";
+import { motion } from "framer-motion";
 import { Globe, Code2, Briefcase, HeadphonesIcon } from "lucide-react";
+import AnimatedCounter from "./AnimatedCounter";
 
 const TeamSection = () => {
   return (
     <section id="team" className="section-darker py-28">
       <div className="container mx-auto px-6">
-        <ScrollReveal>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
+        >
           <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-widest text-primary">
             Our Team
           </span>
@@ -15,12 +21,39 @@ const TeamSection = () => {
           <p className="mb-16 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             We have team members across the US, Canada, Australia, Ukraine, and India — and each side plays a distinct, essential role.
           </p>
-        </ScrollReveal>
+        </motion.div>
+
+        {/* Stats row */}
+        <motion.div
+          className="mb-16 grid grid-cols-2 gap-6 md:grid-cols-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          {[
+            { value: 5, suffix: "+", label: "Countries" },
+            { value: 10, suffix: "+", label: "Years Avg. Experience" },
+            { value: 24, suffix: "/7", label: "Coverage" },
+            { value: 100, suffix: "%", label: "Remote" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <AnimatedCounter value={stat.value} suffix={stat.suffix} className="stat-number text-3xl md:text-4xl" duration={1.5} />
+              <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</p>
+            </div>
+          ))}
+        </motion.div>
 
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Support Team */}
-          <ScrollReveal direction="left">
-            <div className="glass-card rounded-2xl p-10 h-full">
+          <motion.div
+            initial={{ opacity: 0, x: -50, rotateY: 5 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="group"
+          >
+            <div className="glass-card rounded-2xl p-10 h-full transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-[0_0_50px_-15px_hsl(12_55%_50%/0.2)]">
               <div className="mb-2 flex items-center gap-3">
                 <HeadphonesIcon size={24} className="text-primary" />
                 <span className="text-xs font-bold uppercase tracking-widest text-primary">Behind the Scenes</span>
@@ -37,19 +70,34 @@ const TeamSection = () => {
                   { icon: Code2, label: "Highly experienced senior software engineers" },
                   { icon: Briefcase, label: "Expert hiring managers with deep market knowledge" },
                   { icon: HeadphonesIcon, label: "Dedicated virtual assistants for coordination" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3">
-                    <item.icon size={16} className="text-primary" />
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.4 }}
+                  >
+                    <motion.div whileHover={{ scale: 1.2, rotate: 10 }} transition={{ type: "spring" }}>
+                      <item.icon size={16} className="text-primary" />
+                    </motion.div>
                     <span className="text-sm text-secondary-foreground">{item.label}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </ScrollReveal>
+          </motion.div>
 
           {/* Front-facing */}
-          <ScrollReveal direction="right">
-            <div className="glass-card rounded-2xl p-10 h-full">
+          <motion.div
+            initial={{ opacity: 0, x: 50, rotateY: -5 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="group"
+          >
+            <div className="glass-card rounded-2xl p-10 h-full transition-all duration-500 group-hover:border-accent/30 group-hover:shadow-[0_0_50px_-15px_hsl(35_80%_55%/0.2)]">
               <div className="mb-2 flex items-center gap-3">
                 <Globe size={24} className="text-accent" />
                 <span className="text-xs font-bold uppercase tracking-widest text-accent">Front-Facing</span>
@@ -65,18 +113,24 @@ const TeamSection = () => {
                 That is the part only they can play.
               </p>
             </div>
-          </ScrollReveal>
+          </motion.div>
         </div>
 
         {/* Transparency note */}
-        <ScrollReveal delay={0.2}>
-          <div className="mt-12 rounded-2xl border border-border bg-card p-8">
+        <motion.div
+          className="mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="rounded-2xl border border-border bg-card p-8 transition-all duration-500 hover:border-primary/20">
             <h4 className="mb-3 font-display text-lg font-semibold text-foreground">Why This Structure Works</h4>
             <p className="text-sm leading-relaxed text-muted-foreground">
               The salary difference between Ukraine/India and the US/Canada/Australia is significant — even for the same skill and experience level. We offer our support team highly competitive, above-market compensation for their location. They are genuinely well-paid, motivated, and invested in every member's success. This geographic structure is what makes the model financially sustainable and beneficial for everyone involved — a deliberate, transparent, and fair decision.
             </p>
           </div>
-        </ScrollReveal>
+        </motion.div>
       </div>
     </section>
   );
