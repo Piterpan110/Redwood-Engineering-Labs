@@ -14,10 +14,10 @@ const item = {
 };
 
 const roles = [
-  { roles: 1, salary: 150, kept: 150, label: "Your 1st Role", badge: "100% Yours", highlight: false },
-  { roles: 2, salary: 150, kept: 225, label: "2 Roles", badge: "50/50 Split", highlight: false },
-  { roles: 3, salary: 150, kept: 300, label: "3 Roles", badge: "Most Common", highlight: true },
-  { roles: 4, salary: 150, kept: 375, label: "4 Roles", badge: "Top Earners", highlight: false },
+  { roles: 1, salary: 150, kept: 75, label: "1 Role", badge: "Starting Point", highlight: false },
+  { roles: 2, salary: 150, kept: 150, label: "2 Roles", badge: "Double Up", highlight: false },
+  { roles: 3, salary: 150, kept: 225, label: "3 Roles", badge: "Most Common", highlight: true },
+  { roles: 4, salary: 150, kept: 300, label: "4 Roles", badge: "Top Earners", highlight: false },
 ];
 
 const CompensationSection = () => {
