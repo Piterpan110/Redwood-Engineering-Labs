@@ -108,13 +108,13 @@ const ProcessSection = () => {
         {/* Multiple Roles Callout */}
         <motion.div
           className="mt-20"
-          initial={{ opacity: 0, y: 40, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="rounded-2xl border border-primary/20 bg-primary/5 p-10 md:p-14 transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_60px_-15px_hsl(12_55%_50%/0.15)]">
-            <div className="flex items-start gap-5">
+          <div className="rounded-2xl border border-primary/20 bg-primary/5 p-10 md:p-14">
+            <div className="flex items-start gap-5 mb-10">
               <motion.div
                 className="hidden shrink-0 rounded-2xl bg-primary/10 p-4 md:block"
                 animate={{ rotate: [0, 3, -3, 0] }}
@@ -123,23 +123,62 @@ const ProcessSection = () => {
                 <Layers size={32} className="text-primary" />
               </motion.div>
               <div>
-                <h3 className="mb-4 font-display text-2xl font-bold text-foreground md:text-3xl">
+                <h3 className="mb-3 font-display text-2xl font-bold text-foreground md:text-3xl">
                   How Members Handle Multiple Roles
                 </h3>
-                <p className="mb-4 text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed max-w-2xl">
                   This is one of the most unique parts of our model. No engineer can genuinely handle multiple senior roles alone — and our members don't have to.
-                </p>
-                <p className="mb-4 text-secondary-foreground leading-relaxed">
-                  <strong className="text-foreground">Your first role:</strong> You handle it fully yourself — doing the actual engineering work, showing up to everything, fully engaged.
-                </p>
-                <p className="mb-4 text-secondary-foreground leading-relaxed">
-                  <strong className="text-foreground">Every additional role:</strong> The technical work and all written communications are handed entirely to Redwood's support team. You simply attend mandatory team meetings and maintain the client relationship. For each additional role, you receive <span className="font-semibold text-primary">50% of the full salary</span> — without carrying the full technical workload.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  This is team policy — not a suggestion. It's how the model is designed to work, and it's what allows you to earn from multiple high-paying senior positions without burning out. Members who were most anxious about this at the start consistently find it the most manageable once the system kicks in around them.
                 </p>
               </div>
             </div>
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  emoji: "🤝",
+                  title: "Team-Powered Delivery",
+                  text: "The technical work and all written communications are handed entirely to Redwood's support team.",
+                },
+                {
+                  emoji: "📅",
+                  title: "You Show Up, We Handle the Rest",
+                  text: "You simply attend mandatory team meetings and maintain the client relationship.",
+                },
+                {
+                  emoji: "💰",
+                  title: "50% Per Additional Role",
+                  text: "For each additional role, you receive 50% of the full salary — without carrying the full technical workload.",
+                },
+                {
+                  emoji: "⚙️",
+                  title: "Zero Stress, Well-Oiled System",
+                  text: "Our support team is incredibly experienced at managing this. We provide the most optimized and convenient work setup for every member.",
+                },
+              ].map((card, i) => (
+                <motion.div
+                  key={card.title}
+                  className="glass-card rounded-xl p-6 transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_-10px_hsl(12_55%_50%/0.15)]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <span className="mb-3 block text-2xl">{card.emoji}</span>
+                  <h4 className="mb-2 font-display text-base font-semibold text-foreground">{card.title}</h4>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.p
+              className="mt-8 text-center text-sm text-muted-foreground italic max-w-xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              This is team policy — not a suggestion. Members who were most anxious about this at the start consistently find it the most manageable once the system kicks in.
+            </motion.p>
           </div>
         </motion.div>
       </div>
