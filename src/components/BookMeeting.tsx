@@ -1,19 +1,8 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 const CALENDLY_URL = "https://calendly.com/jacekgorski118/30min";
 
 const BookMeeting = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <section id="book" className="section-darker py-28">
       <div className="container mx-auto px-6">
@@ -33,20 +22,14 @@ const BookMeeting = () => {
           <p className="mx-auto mb-12 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Ready to learn more? Pick a time that works for you and we'll walk you through everything — no pressure, no commitment.
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto max-w-4xl overflow-hidden rounded-2xl"
-        >
-          <div
-            className="calendly-inline-widget"
-            data-url={`${CALENDLY_URL}?background_color=1a1a2e&text_color=e0e0e0&primary_color=6366f1`}
-            style={{ minWidth: "320px", height: "700px" }}
-          />
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary-glow inline-block rounded-lg px-10 py-4 text-lg font-semibold text-primary-foreground"
+          >
+            Book a Meeting
+          </a>
         </motion.div>
       </div>
     </section>
