@@ -14,10 +14,10 @@ const item = {
 };
 
 const roles = [
-  { roles: 1, salary: 150, kept: 150, label: "Your 1st Role", badge: "100% Yours", highlight: false },
-  { roles: 2, salary: 150, kept: 225, label: "2 Roles", badge: "50/50 Split", highlight: false },
-  { roles: 3, salary: 150, kept: 300, label: "3 Roles", badge: "Most Common", highlight: true },
-  { roles: 4, salary: 150, kept: 375, label: "4 Roles", badge: "Top Earners", highlight: false },
+  { roles: 1, salary: 150, kept: 75, label: "1 Role", badge: "Starting Point", highlight: false },
+  { roles: 2, salary: 150, kept: 150, label: "2 Roles", badge: "Double Up", highlight: false },
+  { roles: 3, salary: 150, kept: 225, label: "3 Roles", badge: "Most Common", highlight: true },
+  { roles: 4, salary: 150, kept: 300, label: "4 Roles", badge: "Top Earners", highlight: false },
 ];
 
 const CompensationSection = () => {
@@ -53,9 +53,9 @@ const CompensationSection = () => {
         >
           <p className="text-sm font-medium uppercase tracking-wider text-primary mb-3">How It Works</p>
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">1st Role → 100% yours</span>
-            <span className="text-muted-foreground">+</span>
-            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">Each extra → 50/50 split</span>
+            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">Every role → 50/50 split</span>
+            <span className="text-muted-foreground">×</span>
+            <span className="rounded-full bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary">More roles = more income</span>
           </div>
         </motion.div>
 
@@ -104,7 +104,7 @@ const CompensationSection = () => {
 
                   <p className="mb-1 font-display text-lg font-semibold text-foreground">{role.label}</p>
                   <p className="mb-4 text-xs text-muted-foreground">
-                    {role.roles === 1 ? "Keep everything you earn" : `${role.roles} × $${role.salary}K salary`}
+                    {`${role.roles} × $${role.salary}K salary · 50/50 split`}
                   </p>
 
                   <div className="mb-1">
