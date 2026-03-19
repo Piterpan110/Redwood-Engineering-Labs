@@ -4,6 +4,7 @@ import WhoWeAre from "@/components/WhoWeAre";
 import BusinessModel from "@/components/BusinessModel";
 import SupportSection from "@/components/SupportSection";
 import ProcessSection from "@/components/ProcessSection";
+import MultipleRolesSection from "@/components/MultipleRolesSection";
 import TeamSection from "@/components/TeamSection";
 import CompensationSection from "@/components/CompensationSection";
 import WhoWereLookingFor from "@/components/WhoWereLookingFor";
