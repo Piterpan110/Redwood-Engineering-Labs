@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Globe, Users } from "lucide-react";
 import FloatingParticles from "./FloatingParticles";
-import heroBg from "@/assets/hero-bg.jpg";
+
 
 const HeroSection = () => {
   const textReveal = {
@@ -18,14 +18,15 @@ const HeroSection = () => {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <motion.img
-          src={heroBg}
-          alt=""
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="h-full w-full object-cover"
-          initial={{ scale: 1.15 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-        />
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
       </div>
