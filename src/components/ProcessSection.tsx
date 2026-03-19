@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { UserCheck, FileSearch, Send, Mic, Rocket, Layers } from "lucide-react";
+import { UserCheck, FileSearch, Send, Mic, Rocket } from "lucide-react";
 import { useRef } from "react";
 
 const steps = [
