@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Globe, Users } from "lucide-react";
 import FloatingParticles from "./FloatingParticles";
-import heroBg from "@/assets/hero-bg.jpg";
+
 
 const HeroSection = () => {
   const textReveal = {
