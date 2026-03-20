@@ -10,7 +10,8 @@ import CompensationSection from "@/components/CompensationSection";
 import WhoWereLookingFor from "@/components/WhoWereLookingFor";
 import PartnerTerms from "@/components/PartnerTerms";
 import BookMeeting from "@/components/BookMeeting";
-import ContactFooter from "@/components/ContactFooter";
+import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 
 const Index = () => {
