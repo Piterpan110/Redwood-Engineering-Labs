@@ -30,7 +30,8 @@ const Index = () => {
       <WhoWereLookingFor />
       <PartnerTerms />
       <BookMeeting />
-      <ContactFooter />
+      <FAQSection />
+      <Footer />
     </div>
   );
 };
