@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, MessageCircle } from "lucide-react";
+import logo from "@/assets/redwood-logo.png";
 
 const quickLinks = [
   { label: "Who We Are", href: "#who-we-are" },
@@ -25,9 +26,7 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-3 md:gap-8">
           {/* Left */}
           <div>
-            <p className="font-display text-xl font-bold text-foreground">
-              REDWOOD <span className="gradient-text">ENGINEERING LABS</span>
-            </p>
+            <img src={logo} alt="Redwood Engineering Labs" width={200} height={50} className="h-10 w-auto" />
             <p className="mt-2 font-display text-sm italic text-accent">
               "Your win is our win."
             </p>

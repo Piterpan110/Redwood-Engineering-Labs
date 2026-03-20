@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/redwood-logo.png";
 
 const navLinks = [
   { label: "Who We Are", href: "#who-we-are" },
@@ -30,8 +31,8 @@ const Navigation = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#" className="font-display text-xl font-bold tracking-wide text-foreground">
-          REDWOOD <span className="gradient-text">ENGINEERING LABS</span>
+        <a href="#" className="flex items-center" aria-label="Redwood Engineering Labs home">
+          <img src={logo} alt="Redwood Engineering Labs" width={160} height={40} className="h-9 w-auto md:h-10" />
         </a>
 
         {/* Desktop */}
