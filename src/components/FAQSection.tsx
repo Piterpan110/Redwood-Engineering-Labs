@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: "Do you have a public website or LinkedIn?",
-    a: "We have intentionally operated as a private network while building our foundation. We are transitioning to full public presence in Q3 2026.",
+    a: "We have intentionally operated as a private network while building our foundation.",
   },
   {
     q: "How do I get started?",

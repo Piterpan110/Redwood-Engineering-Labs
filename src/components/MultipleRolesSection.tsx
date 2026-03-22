@@ -5,7 +5,7 @@ const points = [
   {
     icon: Users,
     title: "Team-Powered Delivery",
-    desc: "The technical work and all written communications are handled entirely by Redwood's support team.",
+    desc: "The technical work and all written communications are handled by Redwood's support team.",
   },
   {
     icon: CalendarCheck,

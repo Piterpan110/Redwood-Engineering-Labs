@@ -14,7 +14,7 @@ const item = {
 
 const WhoWeAre = () => {
   const points = [
-    { icon: Target, title: "What We Are", desc: "A private, structured remote engineering network. We bring interviews, support, and technical teams to exceptional developers — helping them land and manage multiple senior roles simultaneously." },
+    { icon: Target, title: "What We Are", desc: "A private, structured remote engineering network. We bring interviews, support, and technical teams to developers — helping them land and manage multiple senior roles simultaneously." },
     { icon: Ban, title: "What We Are Not", desc: "We are not a recruiter, not a staffing agency, and not a job board. We are an engineering team that operates entirely behind the scenes under your identity." },
     { icon: Handshake, title: "How We Operate", desc: "Every application, every communication, and every interview is conducted under your real name and real profile. We work alongside you — never in front of you." },
   ];

@@ -104,7 +104,7 @@ const TeamSection = () => {
           overlayOpacity="opacity-[0.55]"
           label="Behind the Scenes"
           headline="The Engine Room"
-          body="Experienced senior engineers, hiring managers, and virtual assistants based in Ukraine and India — all with 10+ years of industry experience. A seasoned, well-oiled team handling everything invisible behind every engagement."
+          body="Experienced senior engineers, hiring managers, and virtual assistants based — all with 10+ years of industry experience. A seasoned, well-oiled team handling everything invisible behind every engagement."
           items={supportItems}
           direction="left"
         />
@@ -116,7 +116,7 @@ const TeamSection = () => {
           overlayOpacity="opacity-45"
           label="Front Facing"
           headline="The Face of Every Engagement"
-          body="Software engineers based in the US, Canada, and Australia. They go through the hiring process, build the client relationship, and represent every engagement with professional excellence. The presence, the profile, and the voice these companies are hiring for."
+          body="Software developers based in the US, Canada, and Australia. They go through the hiring process, build the client relationship, and represent every engagement with professional excellence. The presence, the profile, and the voice these companies are hiring for."
           items={frontfacingItems}
           direction="right"
           delay={0.25}

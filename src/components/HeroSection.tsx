@@ -80,9 +80,9 @@ const HeroSection = () => {
             variants={textReveal}
             className="mb-10 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
           >
-            Redwood Engineering Labs is a private network that helps senior
-            software engineers land multiple high-paying remote roles — with a
-            dedicated team working alongside you every step of the way.
+            Redwood Engineering Labs is a private network that helps
+            software engineers land multiple high-paying remote roles and thrive long term, 
+            with a dedicated team working alongside you every step of the way.
           </motion.p>
 
           <motion.div
@@ -121,7 +121,7 @@ const HeroSection = () => {
             {[
               { icon: Globe, label: "US · Canada · Australia" },
               { icon: Shield, label: "Zero Upfront Fees" },
-              { icon: Users, label: "10+ Years Avg. Experience" },
+              { icon: Users, label: "Structured Support from Experts with 10+ Years of Avg. Exp" },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
